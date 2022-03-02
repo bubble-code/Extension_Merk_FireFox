@@ -1,0 +1,41 @@
+{
+
+  "manifest_version": 2,
+  "name": "Dark Merkur",
+  "version": "1.0",
+
+  "description": "Para la Recaudacion.",
+  "icons": {
+    "48": "icons/bgpicker-48.png"
+  },
+
+  "permissions": [
+      "tabs",
+      "cookies",
+      "storage",
+      "<all_urls>"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+     "32" : "icons/bgpicker-32.png"
+    },
+    "default_title": "BG Picker",
+    "default_popup": "popup/popup.html"
+  },
+
+  "background": {
+    "scripts": ["background_scripts/background.js"]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://filo.gauselmann.com/*"],
+      "js": ["content_scripts/contenScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "search.js",
+    "src/js/*"
+   ]
+}
